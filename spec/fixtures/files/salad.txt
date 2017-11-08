@@ -1,0 +1,7 @@
+{"data"=>
+     [{"id"=>"#{salad.id}",
+       "type"=>"salads",
+       "attributes"=>
+            {"name"=>"greek",
+             "price"=>69,
+             "image"=>"Image"}}]}

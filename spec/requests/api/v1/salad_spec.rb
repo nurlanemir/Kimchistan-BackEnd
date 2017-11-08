@@ -1,6 +1,7 @@
 describe 'GET /v1/salads' do
   context 'return 1 salad' do
-    let!(:salad) {FactoryBot.create(:salad, name: 'greek', price: 69)}
+    binding.pry
+    let!(:salad) { create(:salad, name: 'greek', price: 69) }
 
     it 'should return a salad' do
       get '/api/v1/salads'
@@ -13,7 +14,7 @@ describe 'GET /v1/salads' do
 
   context 'return 5 salads' do
     before do
-      5.times {create(:salad)}
+      5.times { create(:salad) }
     end
 
     it 'gets 5 salads' do

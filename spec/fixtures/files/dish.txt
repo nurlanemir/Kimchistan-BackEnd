@@ -3,4 +3,6 @@
        "type"=>"dishes",
        "attributes"=>
             {"name"=>"dumplings",
-             "price"=>89}}]}
+             "price"=>89,
+             "description"=>"Description",
+             "image"=>"Image"}}]}
