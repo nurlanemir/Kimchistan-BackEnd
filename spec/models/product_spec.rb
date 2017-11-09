@@ -14,7 +14,9 @@ RSpec.describe Product, type: :model do
     it {is_expected.to validate_presence_of :description}
     it {is_expected.to validate_presence_of :price}
     it {is_expected.to validate_presence_of :of_type}
-    # it {is_expected.to validate_inclusion_of :status}
+    # it {is_expected.to validate_inclusion_of :status.in_array([true, false])}
+    # should validate_inclusion_of(:state).
+    #     in_array(['open', 'resolved', 'unresolved'])
   end
 
   describe 'Scope' do
