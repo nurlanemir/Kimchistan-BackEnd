@@ -1,16 +1,10 @@
-{
-    "data"=>
-     [{
-            "id"=> "#{product.id}",
-            "type"=> "products",
-            "attributes"=> {
-                "name"=> "dumplings",
-                "price"=> 89,
-                "description"=> "Description",
-                "image"=> "Image",
-                "status"=> true,
-                "type"=> "dish"
-            }
-        }
-    ]
-}
+{"data"=>
+     [{"id"=> "#{product.id}",
+       "type"=> "products",
+       "attributes"=> {
+            "name"=> "dumplings",
+            "price"=> 89,
+            "description"=> "Description",
+            "image"=> "Image",
+            "status"=> true,
+            "type"=> "dish"}}]}
