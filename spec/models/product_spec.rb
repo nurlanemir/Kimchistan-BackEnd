@@ -49,4 +49,8 @@ RSpec.describe Product, type: :model do
       expect(Product.drinks).to_not include(Product.where("status = false"))
     end
   end
+
+  describe 'associations' do
+    it {is_expected.to have_many(:ingredients)}
+  end
 end
