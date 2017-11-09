@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Api::V1::ProductsController, type: :request do
   describe 'GET /v1/products' do
     context 'return 1 product' do
-      let!(:product) {create(:product, name: 'dumplings', price: 89)}
+      let!(:product) {create(:product, name: 'dumplings', price: 89, of_type: 'dish', status: true, image: 'Image')}
 
       it 'should return a product' do
         get '/api/v1/products'
