@@ -14,6 +14,7 @@ RSpec.describe Product, type: :model do
     it {is_expected.to validate_presence_of :description}
     it {is_expected.to validate_presence_of :price}
     it {is_expected.to validate_presence_of :of_type}
+    it {is_expected.to validate_inclusion_of(:of_type).in_array(['dish', 'salad', 'drink'])}
   end
 
   describe 'Scopes' do
