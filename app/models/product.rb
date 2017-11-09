@@ -8,8 +8,6 @@ class Product < ApplicationRecord
   validates_presence_of :of_type
   validates_inclusion_of :status, in: [true, false]
   validates_inclusion_of :of_type, in: ['dish', 'salad', 'drink']
-  # make constant that is of three type dish, salad or drink
-  # OF_TYPE = ['dish', 'salad', 'drink']
 
   scope :dishes, -> { where(of_type: 'dish', status: true) }
   scope :salads, -> { where(of_type: 'salad', status: true) }
