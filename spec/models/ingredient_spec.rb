@@ -15,7 +15,8 @@ RSpec.describe Ingredient, type: :model do
   end
 
   describe 'associations' do
-    it {is_expected.to have_many(:products)}
+    it {is_expected.to have_many(:product_lines)}
+    it {is_expected.to have_many(:products).through(:product_lines)}
   end
 end
 

@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
-  has_many :ingredients
+  has_many :product_lines
+  has_many :ingredients, through: :product_lines
   validates_presence_of :name
   validates_presence_of :description
   validates_presence_of :price
