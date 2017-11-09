@@ -9,7 +9,7 @@
                 "description"=> "Description",
                 "image"=> "Image",
                 "status"=> true,
-                "of_type"=> "dish"
+                "type"=> "dish"
             }
         }
     ]
