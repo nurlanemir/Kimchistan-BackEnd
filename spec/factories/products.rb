@@ -4,7 +4,7 @@ FactoryBot.define do
     price 1
     image 'Image'
     description 'Description'
-    type 'Dish'
-    status false
+    of_type 'dish'
+    status true
   end
 end

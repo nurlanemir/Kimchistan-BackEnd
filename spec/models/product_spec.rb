@@ -5,7 +5,7 @@ RSpec.describe Product, type: :model do
     it {is_expected.to have_db_column :name}
     it {is_expected.to have_db_column :description}
     it {is_expected.to have_db_column :price}
-    it {is_expected.to have_db_column :type}
+    it {is_expected.to have_db_column :of_type}
     it {is_expected.to have_db_column :status}
   end
 
@@ -13,18 +13,18 @@ RSpec.describe Product, type: :model do
     it {is_expected.to validate_presence_of :name}
     it {is_expected.to validate_presence_of :description}
     it {is_expected.to validate_presence_of :price}
-    it {is_expected.to validate_presence_of :type}
-    it {is_expected.to validate_presence_of :status}
+    it {is_expected.to validate_presence_of :of_type}
+    # it {is_expected.to validate_inclusion_of :status}
   end
 
   describe 'Scope' do
     before do
       5.times {create(:product, status: true)}
-      5.times {create(:product, type: 'salad', status: true)}
-      5.times {create(:product, type: 'drink', status: true)}
-      create(:product, type: 'salad', status: false)
-      create(:product, type: 'drink', status: false)
-      create(:product, type: 'dish', status: false)
+      5.times {create(:product, of_type: 'salad', status: true)}
+      5.times {create(:product, of_type: 'drink', status: true)}
+      create(:product, of_type: 'salad', status: false)
+      create(:product, of_type: 'drink', status: false)
+      create(:product, of_type: 'dish', status: false)
     end
 
 
