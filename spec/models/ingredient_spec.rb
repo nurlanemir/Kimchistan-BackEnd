@@ -6,6 +6,7 @@ RSpec.describe Ingredient, type: :model do
     it {is_expected.to have_db_column :id}
     it {is_expected.to have_db_column :name}
     it {is_expected.to have_db_column :price}
+    it {is_expected.to have_db_column :status}
   end
 
   context 'validations' do
