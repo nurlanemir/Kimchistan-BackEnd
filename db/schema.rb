@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20171109125137) do
   create_table "ingredients", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "status"
+    t.boolean "status", default: true
     t.integer "price"
     t.string "name"
   end
@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 20171109125137) do
     t.datetime "updated_at", null: false
     t.text "description"
     t.string "image"
-    t.string "of_type"
-    t.boolean "status"
+    t.string "of_type", default: "dish"
+    t.boolean "status", default: true
   end
 
   create_table "users", force: :cascade do |t|
