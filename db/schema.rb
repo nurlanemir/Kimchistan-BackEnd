@@ -21,7 +21,13 @@ ActiveRecord::Schema.define(version: 20171110082617) do
     t.boolean "available", default: true
     t.integer "price"
     t.string "name"
-    t.integer "products_id"
+  end
+
+  create_table "ingredients_products", id: false, force: :cascade do |t|
+    t.bigint "product_id"
+    t.bigint "ingredient_id"
+    t.index ["ingredient_id"], name: "index_ingredients_products_on_ingredient_id"
+    t.index ["product_id"], name: "index_ingredients_products_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -33,7 +39,6 @@ ActiveRecord::Schema.define(version: 20171110082617) do
     t.string "image"
     t.string "of_type", default: "dish"
     t.boolean "available", default: true
-    t.integer "ingredient_id"
   end
 
   create_table "users", force: :cascade do |t|
