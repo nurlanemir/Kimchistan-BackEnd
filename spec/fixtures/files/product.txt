@@ -7,4 +7,8 @@
             "description"=> "Description",
             "image"=> "Image",
             "available"=> true,
-            "type"=> "dish"}}]}
+            "type"=> "dish"
+            "ingredients"=> {
+               "name"=> "chicken",
+               "price"=> "39",
+               "available"=> true}}]}

@@ -8,7 +8,7 @@ class Product < ApplicationRecord
   validates_inclusion_of :available, in: [true, false]
   validates_inclusion_of :of_type, in: ['dish', 'salad', 'drink']
 
-  scope :dishes, -> { where(of_type: 'dish', available: true) }
+  scope :dishes, -> { where(of_type: 'dish', available: true).includes(:ingredients [available: true])}
   scope :salads, -> { where(of_type: 'salad', available: true) }
   scope :drinks, -> { where(of_type: 'drink', available: true) }
 end

@@ -19,7 +19,11 @@ RSpec.describe Product, type: :model do
 
   describe 'Scopes' do
     before do
-      5.times {create(:product, available: true)}
+      5.times do
+        prod = create(:product, available: true)
+        5.times {create(:ingredient, available: true)}
+        prod.ingredients.push Ingredient.all
+      end
       5.times {create(:product, of_type: 'salad', available: true)}
       5.times {create(:product, of_type: 'drink', available: true)}
       create(:product, of_type: 'salad', available: false)
@@ -32,8 +36,16 @@ RSpec.describe Product, type: :model do
       expect(Product.dishes.count).to be(5)
     end
 
+    it "should have dishes named scope that has ingredients" do
+      expect(Product.dishes.ingredients.count).to be(5)
+    end
+
     it "does not return unavailable dishes" do
       expect(Product.dishes).to_not include(Product.where("available = false"))
+    end
+
+    it "does not return unavailable dishes that has unavailable ingredients" do
+      expect(Product.dishes.ingredients).to_not include(Product.where("available = false"))
     end
 
     it "should have a salads named scope that returns salads" do
