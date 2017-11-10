@@ -6,7 +6,7 @@ RSpec.describe Ingredient, type: :model do
     it {is_expected.to have_db_column :id}
     it {is_expected.to have_db_column :name}
     it {is_expected.to have_db_column :price}
-    it {is_expected.to have_db_column :status}
+    it {is_expected.to have_db_column :available}
   end
 
   context 'validations' do
@@ -15,8 +15,7 @@ RSpec.describe Ingredient, type: :model do
   end
 
   describe 'associations' do
-    it {is_expected.to have_many(:product_lines)}
-    it {is_expected.to have_many(:products).through(:product_lines)}
+    it {is_expected.to have_and_belong_to_many(:products)}
   end
 end
 

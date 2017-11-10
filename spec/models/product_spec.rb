@@ -6,7 +6,7 @@ RSpec.describe Product, type: :model do
     it {is_expected.to have_db_column :description}
     it {is_expected.to have_db_column :price}
     it {is_expected.to have_db_column :of_type}
-    it {is_expected.to have_db_column :status}
+    it {is_expected.to have_db_column :available}
   end
 
   describe 'Validations' do
@@ -19,12 +19,12 @@ RSpec.describe Product, type: :model do
 
   describe 'Scopes' do
     before do
-      5.times {create(:product, status: true)}
-      5.times {create(:product, of_type: 'salad', status: true)}
-      5.times {create(:product, of_type: 'drink', status: true)}
-      create(:product, of_type: 'salad', status: false)
-      create(:product, of_type: 'drink', status: false)
-      create(:product, of_type: 'dish', status: false)
+      5.times {create(:product, available: true)}
+      5.times {create(:product, of_type: 'salad', available: true)}
+      5.times {create(:product, of_type: 'drink', available: true)}
+      create(:product, of_type: 'salad', available: false)
+      create(:product, of_type: 'drink', available: false)
+      create(:product, of_type: 'dish', available: false)
     end
 
 
@@ -33,7 +33,7 @@ RSpec.describe Product, type: :model do
     end
 
     it "does not return unavailable dishes" do
-      expect(Product.dishes).to_not include(Product.where("status = false"))
+      expect(Product.dishes).to_not include(Product.where("available = false"))
     end
 
     it "should have a salads named scope that returns salads" do
@@ -41,7 +41,7 @@ RSpec.describe Product, type: :model do
     end
 
     it "does not return unavailable salads" do
-      expect(Product.salads).to_not include(Product.where("status = false"))
+      expect(Product.salads).to_not include(Product.where("available = false"))
     end
 
     it "should have a drinks named scope that returns drinks" do
@@ -49,12 +49,11 @@ RSpec.describe Product, type: :model do
     end
 
     it "does not return unavailable drinks" do
-      expect(Product.drinks).to_not include(Product.where("status = false"))
+      expect(Product.drinks).to_not include(Product.where("available = false"))
     end
   end
 
   describe 'associations' do
-    it {is_expected.to have_many(:product_lines)}
-    it {is_expected.to have_many(:ingredients).through(:product_lines)}
+    it {is_expected.to have_and_belong_to_many(:ingredients)}
   end
 end

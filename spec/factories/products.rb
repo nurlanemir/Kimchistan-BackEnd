@@ -5,6 +5,6 @@ FactoryBot.define do
     image 'Image'
     description 'Description'
     of_type 'dish'
-    status true
+    available true
   end
 end
