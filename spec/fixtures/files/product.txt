@@ -6,5 +6,5 @@
             "price"=> 89,
             "description"=> "Description",
             "image"=> "Image",
-            "status"=> true,
+            "available"=> true,
             "type"=> "dish"}}]}
