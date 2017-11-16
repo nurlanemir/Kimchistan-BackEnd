@@ -4,8 +4,9 @@ class OrderMailer < ApplicationMailer
     @customer_email = customer_email
     @cart = cart
     @pickup_time = pickup_time
-    @kitchen_email = 'email should be here'#
+    @kitchen_email = 'test email goes here'#
     @url  = 'https://kimchistan-dev.surge.sh/'  #needs  to be changed before production to real address
-    mail(to: @kitchen_email, subject: 'Pickup time: #{@pickup_time}')
+    # binding.pry
+    mail(to: @kitchen_email, subject: "Pickup time: #{@pickup_time}")
   end
 end

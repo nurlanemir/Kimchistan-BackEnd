@@ -4,7 +4,7 @@ class Api::V1::OrdersController < ApplicationController
     pickup_time = Time.now + 30.minutes
     customer_email = params[:data][:attributes][:email]
     cart = params[:data][:attributes][:cart]
-    OrderMailer.order(customer_email, cart, pickup_time)
+    OrderMailer.order(customer_email, cart, pickup_time).deliver_now
     render :json
   end
 end

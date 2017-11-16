@@ -6,8 +6,10 @@
 <body>
 <h1> Customer: <%= @customer_email  %>, Pickup time: <%= @pickup_time  %>   </h1>
 <p><% @cart.each do |item| %> </p>
-  <p><% item. %> </p>
-
+  <p><%=  item[:product_name] %></p>
+  <p><%= item[:price] %></p>
+  <p><%= item[:item_quantity] %></p>
+<p><% end %></p>
 </body>
 </html>
 
