@@ -26,8 +26,10 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  config.action_mailer.perform_deliveries = true # added this in to test if emails are sent
+
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true # changed this to catch any errors
 
   config.action_mailer.perform_caching = false
 
