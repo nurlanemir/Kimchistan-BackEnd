@@ -1,9 +1,11 @@
 class OrderMailer < ApplicationMailer
 
-  def order(user)
-    #TODO change when we know what have have to work with
-    @user = user
-    @url  = 'http://example.com/login'
-    mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+  def order(customer_email, cart, pickup_time)
+    @customer_email = customer_email
+    @cart = cart
+    @pickup_time = pickup_time
+    @kitchen_email = 'email should be here'#
+    @url  = 'https://kimchistan-dev.surge.sh/'  #needs  to be changed before production to real address
+    mail(to: @kitchen_email, subject: 'Pickup time: #{@pickup_time}')
   end
 end
