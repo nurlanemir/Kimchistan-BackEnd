@@ -27,6 +27,8 @@ Rails.application.configure do
   end
 
   config.action_mailer.perform_deliveries = true # added this in to test if emails are sent
+  config.action_mailer.delivery_method = :smtp # change this for production
+  config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 } # change this for production
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true # changed this to catch any errors

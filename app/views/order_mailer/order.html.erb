@@ -4,16 +4,9 @@
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 <body>
-<h1> Customer: <%= @customer_email  %>, Pickup time: <%= @pickup_time  %>   </h1>
-<p><% @cart.each do |item| %> </p>
-  <p><%=  item[:product_name] %></p>
-  <p><%= item[:price] %></p>
-  <p><%= item[:item_quantity] %></p>
-<p><% end %></p>
+<h1> Customer: <%= @customer_email  %>, Pickup time: <%= @pickup_time  %></h1>
+<% @cart.each do |item| %>
+  <h2><%=  item[:product_name] %> <%= item[:ingredient_name] unless item[:ingredient_name].nil? %> x<%= item[:item_quantity] %></h2>
+<% end %>
 </body>
 </html>
-
-<!--What we need-->
-<!--customer email-->
-<!--time of the order-->
-<!--order details with dish name, ingredient and quantity-->
