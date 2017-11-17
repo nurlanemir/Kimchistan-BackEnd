@@ -1,6 +1,5 @@
 class Api::V1::PaymentsController < ApplicationController
   def create
-
     @amount = payment_params[:amount].to_i
 
     customer = Stripe::Customer.create(
@@ -19,7 +18,7 @@ class Api::V1::PaymentsController < ApplicationController
     render json: {charge: charge}
 
   rescue => error
-    render json: {error: error.message}, status: 400
+    render json: {errors: error.message}, status: 402
   end
 
   private
