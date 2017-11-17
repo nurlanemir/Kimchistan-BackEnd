@@ -1,8 +1,10 @@
 # Kimchistan
 August 2017 Craft Academy Course Final Project
 
-## Website
+We are using RAILS as an API only application. 
 
+## Website
+https://kimchistan-dev.surge.sh/
 
 ## Prerequisites
 - ruby 2.4.1
@@ -51,6 +53,7 @@ We automatically deploy this app with [Heroku](https://www.heroku.com/) through 
 #### Main Gems and Helpers
 * [Rails](https://github.com/rails/rails)
 * [Devise](https://github.com/plataformatec/devise)
+* [Stripe Rails](https://github.com/Everapps/stripe-rails)
 
 #### Development Gems
 * [Pry Byebug](https://github.com/deivid-rodriguez/pry-byebug)
