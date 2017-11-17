@@ -1,6 +1,5 @@
 class Api::V1::PaymentsController < ApplicationController
   def create
-
     @amount = payment_params[:amount].to_i
 
     customer = Stripe::Customer.create(
@@ -11,11 +10,15 @@ class Api::V1::PaymentsController < ApplicationController
     charge = Stripe::Charge.create(
         customer: customer.id,
         amount: @amount,
-        description: 'Best kimchistan order',
+        receipt_email: customer.email,
+        description: 'Tack! Din mat är redo om 30 min.',
         currency: 'sek'
     )
 
-    render json: ({charge: charge})
+    render json: {charge: charge}
+
+  rescue => error
+    render json: {errors: error.message}, status: 402
   end
 
   private
@@ -24,3 +27,4 @@ class Api::V1::PaymentsController < ApplicationController
     params[:data][:attributes]
   end
 end
+
