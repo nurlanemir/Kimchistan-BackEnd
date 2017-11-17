@@ -3,7 +3,6 @@ require "rails_helper"
 RSpec.describe OrderMailer, type: :mailer do
   it 'Sends order to kitchen' do
     pickup_time = (Time.now + 30.minutes).strftime("%H:%M")
-    # pickup_time = pickup_time.strftime("%H:%M")
     customer_email = 'test@test.com'
     cart = [{"product_id"=>"19",
              "product_name"=>"Bibimbap",
@@ -16,7 +15,5 @@ RSpec.describe OrderMailer, type: :mailer do
     expect(email.subject).to eq("Pickup time: #{pickup_time}")
     expect(email.to).to eq(['someone.nowhere@mail.com'])
     expect(email.from).to eq(['someone.nowhere@mail.com'])
-
   end
-
 end
