@@ -1,4 +1,5 @@
 # Kimchistan
+[![Coverage Status](https://coveralls.io/repos/github/CraftAcademy/Kimchistan-BackEnd/badge.svg?branch=develop)](https://coveralls.io/github/CraftAcademy/Kimchistan-BackEnd?branch=develop)
 August 2017 Craft Academy Course Final Project
 
 We are using RAILS as an API only application. 
