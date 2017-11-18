@@ -10,10 +10,10 @@ RSpec.describe OrderMailer, type: :mailer do
              "ingredient_id"=>"25",
              "ingredient_name"=>"Chicken",
              "item_quantity"=>1}]
-    email = OrderMailer.order(customer_email, cart, pickup_time).deliver_now
+    email = OrderMailer.kitchen_order_details(customer_email, cart, pickup_time).deliver_now
 
     expect(email.subject).to eq("Pickup time: #{pickup_time}")
-    expect(email.to).to eq(['someone.nowhere@mail.com'])
-    expect(email.from).to eq(['someone.nowhere@mail.com'])
+    expect(email.to).to eq([(ENV['gmail_username'])])
+    expect(email.from).to eq([(ENV['gmail_username'])])
   end
 end
