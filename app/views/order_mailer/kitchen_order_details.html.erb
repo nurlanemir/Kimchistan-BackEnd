@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<h2> Customer: <%= @customer_email  %>, Pickup time: <%= @pickup_time  %></h2>
+<% @cart.each do |item| %>
+  <h4><%=  item[:product_name] %> <%= item[:ingredient_name] unless item[:ingredient_name].nil? %> x<%= item[:item_quantity] %></h4>
+<% end %>
+</body>
+</html>
