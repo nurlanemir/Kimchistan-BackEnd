@@ -23,14 +23,14 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
 # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-      :address              => "smtp.gmail.com",
-      :port                 => 587,
-      :user_name            => ENV['gmail_username'],
-      :password             => ENV['gmail_password'],
-      :authentication       => "plain",
-      :enable_starttls_auto => true
+      address: ENV.fetch('SMTP_ADDRESS'),
+      authentication: ENV.fetch('SMTP_AUTH'),
+      domain: ENV.fetch('SMTP_DOMAIN'),
+      enable_starttls_auto: ENV.fetch('SMTP_ENABLE_TLS'),
+      password: ENV.fetch('SMTP_PASSWORD'),
+      port: ENV.fetch('SMTP_PORT'),
+      user_name: ENV.fetch('SMTP_USERNAME')
   }
-
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
